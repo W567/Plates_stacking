@@ -1,0 +1,23 @@
+
+#include <InterfaceDataTypes.idl>
+
+interface ComPcProcess
+{
+	typedef RTC::PointCloud MultiPointCloud[4];
+        typedef float plate_info[10][10];
+        typedef float Matrix4X4F[4][4];	
+
+
+	MultiPointCloud get_pointCloud(in short CameraBitMask, out boolean flag);
+	boolean save_pointCloud(in short CameraBitMask, in string str);
+
+        long plate_recog(in Matrix4X4F matrix_in,out plate_info information, out double r_max);
+	long plate_modelling(in Matrix4X4F matrix_in);
+	boolean single_plate_modelling(in Matrix4X4F matrix_in);
+	double check_destination(in double r,in double x,in double y);
+	double height_determine(in double r);
+	double add_PointCloud(in Matrix4X4F matrix_in);
+	double get_FirstCloud(in Matrix4X4F matrix_in);
+};
+	
+

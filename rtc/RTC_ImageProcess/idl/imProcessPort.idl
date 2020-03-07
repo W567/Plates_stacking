@@ -1,0 +1,16 @@
+
+#include <InterfaceDataTypes.idl>
+
+interface ComImProcess
+{
+	typedef RTC::CameraImage MultiImage[4];
+
+	MultiImage get_colorImage(in short CameraBitMask, out boolean ref);
+	MultiImage get_irImage(in short CameraBitMask, out boolean ref);
+	MultiImage get_ir_rightImage(in short CameraBitMask, out boolean ref);
+	MultiImage get_depthImage(in short CameraBitMask, out boolean ref);
+	boolean save_colorImage(in short CameraBitMask, in string str);
+	boolean save_irImage(in short CameraBitMask, in string str);
+	boolean save_ir_rightImage(in short CameraBitMask, in string str);
+	boolean save_depthImage(in short CameraBitMask, in string str);
+};
